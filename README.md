@@ -8,7 +8,7 @@ This is a Java Spring Boot application designed to manage sensors and their meas
 - Authentication: Secure access to the API using JWT-based authentication.
 - Swagger Documentation: Interactive API documentation available at /swagger-ui.html.
 
-** Technologies Used**<br>
+**Technologies Used**<br>
 - Java
 - Spring Boot
 - Spring Data JPA
@@ -18,7 +18,7 @@ This is a Java Spring Boot application designed to manage sensors and their meas
 - PostgreSQL
 - Swagger
 
-*Running the Project with Docker-Compose*<br>
+**Running the Project with Docker-Compose**<br>
 To run the project using Docker-Compose, follow these steps:
 - Clone the Repository:<br>
 git clone https://github.com/hint1k/SensorDemo.git <br>
@@ -37,26 +37,26 @@ Swagger UI can be accessed at http://localhost:8080 as well via redirect.
 - Register a Sensor <br>
 Endpoint: POST /sensors/registration
 
-Request Body (json format):<br>
-'''json { "name": "Sensor1" }
+Request Body :<br>
+json { "name": "Sensor1" }
 
 Response:<br>
-'''json { "status": "success", "message": "Sensor registered successfully" }
+json { "status": "success", "message": "Sensor registered successfully" }
 
 - Add a Measurement <br>
 Endpoint: POST /measurements/add
 
 Request Body:<br>
-'''json { "temperature": 25.50, "rain": true, "sensor": { "name": "Sensor1" } }
+json { "temperature": 25.50, "rain": true, "sensor": { "name": "Sensor1" } }
 
 Response:<br>
-'''json { "status": "success", "message": "Measurement added successfully" }
+json { "status": "success", "message": "Measurement added successfully" }
 
 - Get All Measurements <br>
 Endpoint: GET /measurements
   
 Response:<br>
-'''json [ { "id": 1, "temperature": 25.50, "rain": true, "sensor": { "id": 1, "name": "Sensor1" } }, 
+json [ { "id": 1, "temperature": 25.50, "rain": true, "sensor": { "id": 1, "name": "Sensor1" } }, 
 { "id": 2, "temperature": 22.00, "rain": false, "sensor": { "id": 1, "name": "Sensor1" } } ]
 
 - Get Rainy Days Count <br>
@@ -73,19 +73,15 @@ username: admin<br>
 password: 123<br>
 
 Response:<br>
-'''json
-{
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
-
+json { "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." }
 
 - Access Secured Endpoints<br>
 To access secured endpoints, include the JWT token in the Authorization header:<br>
 curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." http://localhost:8080/measurements<br>
 
-- Database Configuration
+- Database Configuration<br>
 The application uses PostgreSQL as the database.<br> 
 The connection details are configured in the application.properties file. <br>
 The SQL script to create tables and fill in manually in the resources/sql-scripts/init.sql file <br> 
 
-- Swagger json schema is in the swagger.json file 
+- Swagger json schema is in the swagger.json file<br> 
