@@ -84,4 +84,8 @@ The application uses PostgreSQL as the database.<br>
 The connection details are configured in the application.properties file. <br>
 The SQL script to create tables and fill in manually in the resources/sql-scripts/init.sql file <br> 
 
-- Swagger json schema is in the swagger.json file<br> 
+- Swagger json schema is in the swagger.json file<br>
+ 
+**Automatic application test:**
+- The class SensorClient is located in /client/src/main/java/com/test/sensor/ <br>
+- To test the application automatically: run the docker-compose and then run this class. It will add 1000 measurements to the database and read them from the database. 
