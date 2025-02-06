@@ -1,0 +1,41 @@
+services:
+  postgres-sensor:
+    image: postgres:16
+    container_name: postgres-sensor
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: sensor
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./src/main/resources/sql-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U user" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  sensor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sensor
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-sensor:5432/sensor
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: 123
+    depends_on:
+      - postgres-sensor
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: [ "CMD-SHELL", "nc -z localhost 8080" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
