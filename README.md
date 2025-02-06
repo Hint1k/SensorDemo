@@ -1,4 +1,5 @@
-**Sensor and Measurement Management System**<br>
+**Sensor and Measurement Management System** <br>
+
 This is a Java Spring Boot application designed to manage sensors and their measurements. The system provides RESTful APIs for registering sensors, adding measurements, retrieving measurement data, and authenticating users with JWT (JSON Web Tokens). The application is secured using Spring Security, and API documentation is available via Swagger UI.
 
 **Features**<br>
@@ -24,14 +25,14 @@ To run the project using Docker-Compose, follow these steps:
 git clone https://github.com/hint1k/SensorDemo.git <br>
 cd sensor-measurement-system
 
-- Build the Docker Image: (optional) <br>
+- Build the Docker Image: (optional step) <br>
 docker-compose build
 
 - Run the Application:<br>
 docker-compose up
 
-- Access the Application: <br>
-Swagger UI can be accessed at http://localhost:8080 as well via redirect.
+- Access the Application UI: <br>
+Swagger UI can be accessed at http://localhost:8080 as via redirect.
 
 **API Examples**<br>
 - Register a Sensor <br>
