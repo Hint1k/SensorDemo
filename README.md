@@ -23,7 +23,6 @@ This is a Java Spring Boot application designed to manage sensors and their meas
 To run the project using Docker-Compose, follow these steps:
 - Clone the Repository:<br>
 git clone https://github.com/hint1k/SensorDemo.git <br>
-cd sensor-measurement-system
 
 - Build the Docker Image: (optional step) <br>
 docker-compose build
