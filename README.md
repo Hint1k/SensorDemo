@@ -37,26 +37,26 @@ Swagger UI can be accessed at http://localhost:8080 as well via redirect.
 - Register a Sensor <br>
 Endpoint: POST /sensors/registration
 
-Request Body :<br>
-json { "name": "Sensor1" }
+Request Body:<br>
+{ "name": "Sensor1" }
 
 Response:<br>
-json { "status": "success", "message": "Sensor registered successfully" }
+{ "status": "success", "message": "Sensor registered successfully" }
 
 - Add a Measurement <br>
 Endpoint: POST /measurements/add
 
 Request Body:<br>
-json { "temperature": 25.50, "rain": true, "sensor": { "name": "Sensor1" } }
+{ "temperature": 25.50, "rain": true, "sensor": { "name": "Sensor1" } }
 
 Response:<br>
-json { "status": "success", "message": "Measurement added successfully" }
+{ "status": "success", "message": "Measurement added successfully" }
 
 - Get All Measurements <br>
 Endpoint: GET /measurements
   
 Response:<br>
-json [ { "id": 1, "temperature": 25.50, "rain": true, "sensor": { "id": 1, "name": "Sensor1" } }, 
+[ { "id": 1, "temperature": 25.50, "rain": true, "sensor": { "id": 1, "name": "Sensor1" } }, 
 { "id": 2, "temperature": 22.00, "rain": false, "sensor": { "id": 1, "name": "Sensor1" } } ]
 
 - Get Rainy Days Count <br>
@@ -73,7 +73,7 @@ username: admin<br>
 password: 123<br>
 
 Response:<br>
-json { "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." }
+{ "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." }
 
 - Access Secured Endpoints<br>
 To access secured endpoints, include the JWT token in the Authorization header:<br>
